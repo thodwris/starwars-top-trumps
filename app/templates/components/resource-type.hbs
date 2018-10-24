@@ -1,0 +1,144 @@
+<h3 class="text-center">
+  {{type}}
+</h3>
+<div class="text-center mt-2 mb-4">
+  {{#bs-button
+    type="primary"
+    class="btn btn-outline-primary btn-lg btn-block"
+    onClick=(action "play")
+  }}
+    Play
+  {{/bs-button}}
+</div>
+<div class="row">
+  {{#if (eq power "mass")}}
+    {{#each data as |person i|}}
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">
+              Total wins:
+              {{unless i leftPlayerScore rightPlayerScore}}
+            </h3>
+            <p class="card-text">
+              Mass:
+              <span
+                class="badge badge-pill
+                  {{if
+                    person.hasSameMass
+                    "badge-warning"
+                    (if person.hasBiggerMass "badge-success")
+                  }}"
+              >
+                {{person.mass}}
+              </span>
+            </p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              Gender:
+              {{person.gender}}
+            </li>
+            <li class="list-group-item">
+              Height:
+              {{person.height}}
+            </li>
+            <li class="list-group-item">
+              Eye color:
+              {{person.eye_color}}
+            </li>
+            <li class="list-group-item">
+              Hair Color:
+              {{person.hair_color}}
+            </li>
+            <li class="list-group-item">
+              Birth year:
+              {{person.birth_year}}
+            </li>
+            <li class="list-group-item">
+              Skin color:
+              {{person.skin_color}}
+            </li>
+          </ul>
+        </div>
+      </div>
+    {{/each}}
+  {{/if}}
+  {{#if (eq power "crew")}}
+    {{#each data as |starship i|}}
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">
+              Total wins:
+              {{unless i leftPlayerScore rightPlayerScore}}
+            </h3>
+            <p class="card-text">
+              Crew:
+              <span
+                class="badge badge-pill
+                  {{if
+                    starship.hasSameCrew
+                    "badge-warning"
+                    (if starship.hasBiggerCrew "badge-success")
+                  }}"
+              >
+                {{starship.crew}}
+              </span>
+            </p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              Name:
+              {{starship.name}}
+            </li>
+            <li class="list-group-item">
+              Model:
+              {{starship.model}}
+            </li>
+            <li class="list-group-item">
+              Manufacturer:
+              {{starship.manufacturer}}
+            </li>
+            <li class="list-group-item">
+              Cost in credits:
+              {{starship.cost_in_credits}}
+            </li>
+            <li class="list-group-item">
+              Length:
+              {{starship.length}}
+            </li>
+            <li class="list-group-item">
+              Max atmosphering speed:
+              {{starship.max_atmosphering_speed}}
+            </li>
+            <li class="list-group-item">
+              Passengers:
+              {{starship.passengers}}
+            </li>
+            <li class="list-group-item">
+              Cargo capacity:
+              {{starship.cargo_capacity}}
+            </li>
+            <li class="list-group-item">
+              Consumables:
+              {{starship.consumables}}
+            </li>
+            <li class="list-group-item">
+              Hyperdrive rating:
+              {{starship.hyperdrive_rating}}
+            </li>
+            <li class="list-group-item">
+              MGLT:
+              {{starship.MGLT}}
+            </li>
+            <li class="list-group-item">
+              Starship class:
+              {{starship.starship_class}}
+            </li>
+          </ul>
+        </div>
+      </div>
+    {{/each}}
+  {{/if}}
+</div>

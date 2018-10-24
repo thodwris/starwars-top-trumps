@@ -1,11 +1,16 @@
 'use strict';
 
-module.exports = function(environment) {
+module.exports = function (environment) {
   let ENV = {
     modulePrefix: 'starwars-top-trumps',
     environment,
     rootURL: '/',
+    apiBaseUrl: 'https://swapi.co',
+    namespace: 'api',
     locationType: 'auto',
+    headers: {
+      'Accept': 'application/json'
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build

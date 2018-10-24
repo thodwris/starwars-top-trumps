@@ -1,5 +1,21 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
-
-{{outlet}}
+{{#bs-navbar as |navbar|}}
+  {{navbar.toggle}}
+  {{link-to "Star Wars" "index" class="navbar-brand"}}
+  {{#navbar.content}}
+    {{#navbar.nav class="ml-auto" as |nav|}}
+      {{#nav.item}}
+        {{#nav.link-to "people"}}
+          people
+        {{/nav.link-to}}
+      {{/nav.item}}
+      {{#nav.item}}
+        {{#nav.link-to "starships"}}
+          starships
+        {{/nav.link-to}}
+      {{/nav.item}}
+    {{/navbar.nav}}
+  {{/navbar.content}}
+{{/bs-navbar}}
+<div class="container">
+  {{outlet}}
+</div>
